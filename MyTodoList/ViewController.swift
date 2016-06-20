@@ -52,14 +52,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             //OKボタンが押された時の処理
             if let textField = alertController.textFields?.first {
                 
-                //テーブルに行が追加されたことをテーブルに通知
-                self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Right)
-                
                 //TODOの配列に入力した値を挿入。先頭に挿入する
                 let myTodo = MyTodo()
                 myTodo.todoTitle = textField.text
                 self.todoList.insert(myTodo, atIndex: 0)
-
+                
+                //テーブルに行が追加されたことをテーブルに通知
+                self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Right)
+                
                 
                 //保存処理を追加
                 //NSData型にシリアライズする
